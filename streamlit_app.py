@@ -3,6 +3,13 @@ import requests
 import json
 from datetime import datetime, timedelta
 from typing import Dict, List
+from dotenv import load_dotenv
+import os
+
+# Load environment variables
+load_dotenv()
+# Get backend URL from environment variable
+BACKEND_URL = os.getenv("BACKEND_URL", "http://localhost:8000")  # Default to localhost if not set
 
 # Page config
 st.set_page_config(
@@ -11,8 +18,6 @@ st.set_page_config(
     layout="wide"
 )
 
-# Backend URL
-BACKEND_URL = "http://localhost:8000"  # Change for production
 
 # Simple CSS for clean styling
 def load_custom_css():
